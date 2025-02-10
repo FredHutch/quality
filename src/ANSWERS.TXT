@@ -1,0 +1,103 @@
+Results for "test number 1"...
+
+   # of copies per unit:     418.97
+         Standard Error:     354.16
+
+  Chi^2 goodness of fit:     0.1756
+     degrees of freedom:          4
+                P-value:     0.9964
+
+Sensitivity analysis:
+
+  Dilution    # PCRs     # pos   Pos exp    +1 pos    -1 pos
+
+    1.0000         3         3       3.0    418.97      4.54
+    0.1000         1         1       1.0    418.97     23.97
+    0.0100         3         3       3.0    418.97    157.08
+    0.0010         3         1       1.0    997.59    222.88
+    0.0001         3         0       0.1    988.02    418.97
+
+
+Results for "test number 2"...
+
+   # of copies per unit:      12.27
+         Standard Error:       2.63
+
+  Chi^2 goodness of fit:     9.1672
+     degrees of freedom:          4
+                P-value:     0.0571
+
+Sensitivity analysis:
+
+  Dilution    # PCRs     # pos   Pos exp    +1 pos    -1 pos
+
+    1.0000         3         3       3.0     12.27      3.43
+    0.2000         3         2       2.7     61.79      8.72
+    0.0400         3         3       1.2     12.27     11.06
+    0.0080         3         1       0.3     14.34     11.06
+    0.0016         3         0       0.1     15.21     12.27
+
+
+Results for "test number 3"...
+     False negative prob:      0.05
+
+   # of copies per unit:      65.11
+         Standard Error:      46.48
+
+  Chi^2 goodness of fit:     5.9838
+     degrees of freedom:          4
+                P-value:     0.2004
+
+Sensitivity analysis:
+
+  Dilution    # PCRs     # pos   Pos exp    +1 pos    -1 pos
+
+    1.0000         3         3       2.8     65.11     65.11
+    0.2000         3         2       2.8     65.17     10.43
+    0.0400         3         3       2.6     65.11     14.83
+    0.0080         3         1       1.2    124.66     14.86
+    0.0016         3         0       0.3    108.97     65.11
+
+
+Results for "test number 4"...
+
+   # of copies per unit:     997.59
+         Standard Error:     747.39
+
+  Chi^2 goodness of fit:     0.3310
+     degrees of freedom:          4
+                P-value:     0.9877
+
+Sensitivity analysis:
+
+  Dilution    # PCRs     # pos   Pos exp    +1 pos    -1 pos
+
+    1.0000         3         3       3.0    997.59      5.20
+    0.1000         1         1       1.0    997.59     29.38
+    0.0100         3         3       3.0    997.59    217.40
+    0.0010         3         2       1.9   2287.83    418.97
+    0.0001         3         0       0.3   1578.40    997.59
+
+
+Results for "test number 5"...
+
+   # of copies per unit:     988.02
+         Standard Error:     420.25
+
+  Chi^2 goodness of fit:     3.1274
+     degrees of freedom:          4
+                P-value:     0.5367
+
+Sensitivity analysis:
+
+  Dilution    # PCRs     # pos   Pos exp    +1 pos    -1 pos
+
+    1.0000         3         3       3.0    988.02      5.85
+    0.1000         1         1       1.0    988.02     34.85
+    0.0100         3         3       3.0    988.02    269.79
+    0.0010         3         1       1.9   1578.40    725.95
+    0.0001         3         1       0.3   1501.69    418.97
+
+
+
+Program done.

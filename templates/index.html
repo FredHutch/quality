@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality</title>
+    <style>
+        .field-container {
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 8em;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 4px;
+            text-align: right;
+            margin-right: 25px;
+        }
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+        }
+        .delete-btn {
+            font-size: 16px;
+            padding: 3px 10px;
+            margin-bottom: 5px;
+        }
+        body {
+            min-width:1200px; 
+            font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+        }
+        h1 {
+            margin-left: 30px;
+        }
+        #indent {
+            background:#FFFFFF;
+            margin: 10px 30px 10px 30px;
+        }
+        #footer {
+            background:#FFF;
+            border-top:1px solid #1f669b;
+            border-bottom:1px solid #1f669b;
+            clear:both;
+        }
+
+        #footer p {
+            margin: 5px 10px 5px 10px;
+            font-size: 11px;
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Quality</h1>
+    <hr size="2" color="#3399CC">
+    <div id="indent">
+    {% if result %}
+<pre>
+    {{ result }}
+</pre>
+    {% else %}
+<pre>
+ No result
+</pre>
+    {% endif %}
+    </pre>
+    <!-- Form to take user input -->
+    <form method="POST">        
+        <div id="number-fields-container">
+            <!-- Initial set of 3 input fields -->
+            {% if number_sets %}           
+            {% for number_set in number_sets %}    
+            <div class="field-container">
+                <input type="number" name="number" placeholder="dilution" value="{{ number_set[0] }}" min="0" step="any" required>
+                <input type="number" name="number" placeholder="total rxns" value="{{ number_set[1] }}" min="1" required>
+                <input type="number" name="number" placeholder="positive rxns" value="{{ number_set[2] }}" min="0" required>
+                <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="field-container">
+                <input type="number" name="number" placeholder="dilution" min="0" step="any" required>
+                <input type="number" name="number" placeholder="total rxns" min="1" required>
+                <input type="number" name="number" placeholder="positive rxns" min="0" required>
+                <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>
+            </div>
+            {% endif %}
+        </div>
+        <!-- Button to add new sets of 3 fields -->
+        <button id="add-fields-btn" onclick="addFieldSet()">Add dilution</button>
+        <button type="submit">Submit</button>
+
+        <script>
+            // Function to add a new set of 3 fields
+            function addFieldSet() {
+                // Create a new div to hold the 3 inputs
+                var newFieldSet = document.createElement('div');
+                newFieldSet.classList.add('field-container');
+    
+                // Add 3 input fields to the new div
+                newFieldSet.innerHTML = `
+                    <input type="number" name="number" placeholder="dilution" min="0" step="any" required>
+                    <input type="number" name="number" placeholder="total rxns" min="1" required>
+                    <input type="number" name="number" placeholder="positive rxns" min="0" required>
+                    <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>
+                `;
+    
+                // Append the new field set to the container
+                document.getElementById('number-fields-container').appendChild(newFieldSet);
+            }
+
+            function removeField(button) {
+                // Find the parent div of the button and remove it
+                button.parentElement.remove();
+            }
+        </script>
+    </form> 
+</div>   
+<hr size="2" color="#3399CC"> 
+<div id="indent">
+<h3>Description:</h3>
+    <p>The program QUALITY is a variant of the Minimum
+        <i>&chi;</i><sup>2</sup> (MC) method described by Taswell [1] for
+        limiting dilution assays, and for which he has
+        demonstrated by simulation desirable properties of
+        minimum variance (i.e., high precision) and minimum
+        bias. Our method modifies the MC method to allow the
+        user to specify the probabilities of a false negative
+        and false positive PCR.</p>
+        <p>The program, and the methods used, are described in
+        detail in Rodrigo <i>et al.</i> [2]. An overview is
+        available in <a href="static/quality.pdf">PDF</a>
+        formats.</p>
+        <ol>
+          <li><a name="refTaswell"></a>Taswell, C. 1981.
+            Limiting dilution assays for the determination of
+            immunocompetent cell frequencies. J. Immunol. 126:1614-1619.</li>
+          <li><a name="refRodrigo"></a>Rodrigo, A.G., P.C.
+                Goracke, K. Rowhanian, and J.I. Mullins. 1997.
+                Quantitation of target molecules from PCR-based
+                limiting dilution assays. AIDS Res. Human Retrovir. 13:737-742.</li>
+        </ol></p>    
+    <h3>Contact:</h3>
+    <p>For any questions, bugs and suggestions, please send email to <a href="mailto:mullspt@uw.edu?subject=Quality">mullspt@uw.edu</a> and include a few sentences describing, briefly, the nature of your questions and include contact information.</p>
+</div>
+	
+	<div id="footer">
+		<p class="copyright">&copy; 2025 Fred Hutch Cancer Center. All rights reserved.</p>
+	</div>
+
+</body>
+</html>

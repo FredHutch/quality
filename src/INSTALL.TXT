@@ -1,0 +1,40 @@
+QUALITY Install Notes
+
+Due to licensing restrictions, we are unable to supply the Numerical Recipes
+source code used to generate the P-value--if you want that feature, you will
+need to provide your own licensed copy of the Numerical Recipes sources. We
+apologize for any inconvenience this may cause.
+
+In the hopes of making it easier for you to generate the appropriate program
+version, we have supplied two makefiles: "Makefile" for a basic build, and
+"Makefile.nr" to build the "P-value-enabled" version.
+
+* Makefile
+
+For the most part, you should be able to just type 'make' at the command line,
+and the non-Numerical Recipes version of QUALITY will be built as 'quality'.
+If there are problems, please examine the makefile and change the settings as
+appropriate for your system.
+
+* Makefile.nr
+
+If you are supplying a copy of the Numerical Recipes sources, edit Makefile.nr
+as necessary. Hopefully, you should only need to change the parameters that
+relate to the location of the Recipes. Save the changes, then type
+'makefile -f Makefile.nr' to build the "P-value-enabled" version using
+"Makefile.nr" rather than "Makefile".
+
+I am definitely not a Makefile guru. If anyone has feedback on how to
+simplify this setup, yet keep it easy for non-gurus to install, I'd like to
+hear it.
+
+Once successfully compiled, please compare the results you obtain using
+the included sample input file ("QUALITY_sample_data" or "TESTPC.TXT",
+depending on the download) against our results in "ANSWERS.TXT". If they
+do not match, check that the endline character(s) of the input file is
+correct for your platform. If that's okay, something is wrong in the
+compilation, and we do not recommend you rely on the resulting program
+for dependable results.
+
+8jun97
+Paul Goracke, goracke@u.washington.edu

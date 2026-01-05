@@ -30,7 +30,8 @@ test:
     - name: sc-registry.fredhutch.org/quality:test
       alias: quality
   script:
-    - sleep 120 && curl -sI  http://quality:5000 && curl -sI http://quality:5000  |head -2|grep -q "200 "
+    - sleep 120 && curl -sI  http://quality:5000 && curl -sI http://quality:5000  |head -2|grep  "200 " ; echo result is $?; exit 1
+    - echo "we should not get here"
 
 deploy:
   stage: deploy
